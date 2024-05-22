@@ -10,9 +10,45 @@ We have (anonymized) data which contains 10000 users who clicked on at least one
 
 The order of clicks is as indicated in the data. Data example:
 
-user_id | click_1 | click_2 | click_3 | click_4 | click_5 | Conversion | Value |
-00001   |    a    |    b    |   NaN   |    d    |    NaN  |     0      |  0    |
-00002   |    c    |    c    |    a    |    b    |    a    |     1      |  10   |
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>user_id</th>
+      <th>click_1</th>
+      <th>click_2</th>
+      <th>click_3</th>
+      <th>click_4</th>
+      <th>click_5</th>
+      <th>Conversion</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>001</th>
+      <td>a</td>
+      <td>b</td>
+      <td>NaN</td>
+      <td>d</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>002</th>
+      <td>c</td>
+      <td>c</td>
+      <td>a</td>
+      <td>b</td>
+      <td>a</td>
+      <td>1</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 We would like to build a statistical attribution model to know:
 * Which campaign is the most successful in terms of unit sales contributed?
