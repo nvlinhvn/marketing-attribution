@@ -49,10 +49,12 @@ The order of clicks is as indicated in the data. Data example:
 </table>
 </div>
 
-![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.gif)
-
 
 We would like to build a statistical attribution model to know:
 * Which campaign is the most successful in terms of unit sales contributed?
 * What is the return on investment for each campaign?
 * How would you optimize the spend of a given budget of $1 million across all four campaigns?
+
+# Hidden Markov Model
+![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.gif)
+(Source: setosa.io)
