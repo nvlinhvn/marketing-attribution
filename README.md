@@ -57,4 +57,5 @@ We would like to build a statistical attribution model to know:
 
 # Hidden Markov Model
 ![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.gif)
+
 (Source: setosa.io)
