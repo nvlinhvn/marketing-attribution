@@ -49,6 +49,8 @@ The order of clicks is as indicated in the data. Data example:
 </table>
 </div>
 
+![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.gif)
+
 
 We would like to build a statistical attribution model to know:
 * Which campaign is the most successful in terms of unit sales contributed?
