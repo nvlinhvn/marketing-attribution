@@ -146,11 +146,11 @@ Let:
 * $\mathbf{AR} = [\text{AR}_a, \text{AR}_b, \text{AR}_c, \text{AR}_d]^T$ be the vector of attributed revenue for each campaign.
 
 The optimization problem can be formulated as follows:
-Objective function:
-$$\text{Maximize: } \mathbf{r}^T \mathbf{x}$$
+* Objective function: $$\text{Maximize: } \mathbf{r}^T \mathbf{x}$$
+
 Subject to:
 
-* Total budget constraint: $$ \mathbf{1}^T \mathbf{x} \eq \text{total budget}$$
+* Total budget constraint: $$ \mathbf{1}^T \mathbf{x} = \text{total budget}$$
 * Removal effect constraints: $$\mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})$$
 
 The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}^*$ that maximizes the total attributed revenue while satisfying the constraints.
