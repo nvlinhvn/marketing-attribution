@@ -134,16 +134,16 @@ Decision variables: $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ (representing the budg
 Objective function: Maximize the total attributed revenue
 Constraints:
 
-* Total budget constraint: x_a + x_b + x_c + x_d = total_budget
-* Non-negativity constraints: all x_a, x_b, x_c, x_d > 0
+* Total budget constraint: $x_a + x_b + x_c + x_d$ = total budget
+* Non-negativity constraints: all $x_a$, $x_b$, $x_c$, $x_d$ > 0
 * Removal effect constraints: Ensure that the attributed revenue for each campaign is consistent with the removal effects
 
 Let:
 * $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables representing the budget allocation for each campaign
 * $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign where:
   - $$\mathbf{r} = (1 + \text{return on investment (\%) }) \times \text{cost}$$
-* $\mathbf{RE} = [\text{RE}(a), \text{RE}(b), \text{RE}(c), \text{RE}(d)]^T$ be the vector of removal effects for each campaign
-* $\mathbf{AR} = [\text{AR}(a), \text{AR}(b), \text{AR}(c), \text{AR}(d)]^T$ be the vector of attributed revenue for each campaign.
+* $\mathbf{RE} = [\text{RE}_a, \text{RE}_b, \text{RE}_c, \text{RE}_d]^T$ be the vector of removal effects for each campaign
+* $\mathbf{AR} = [\text{AR}_a, \text{AR}_b, \text{AR}_c, \text{AR}_d]^T$ be the vector of attributed revenue for each campaign.
 
 The optimization problem can be formulated as follows:
 Objective function:
