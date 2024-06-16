@@ -74,15 +74,8 @@ Based on frequency, we can calculate the transition probabilities (when a state 
 
 ![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.png)
 
-Transition Matrix
-             a         b         c         d         0         1      NULL
-a     0.166486  0.174633  0.164584  0.164856  0.040060  0.024851  0.264530
-b     0.165352  0.167850  0.164564  0.165484  0.039695  0.025237  0.271819
-c     0.157222  0.169067  0.169067  0.165298  0.041728  0.022210  0.275407
-d     0.165154  0.167457  0.164205  0.165696  0.044167  0.021271  0.272050
-0     0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000
-1     0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000
-NULL  0.000000  0.000000  0.000000  0.000000  0.324661  0.074488  0.600851
+The training state based on frequency can give us transition matrix
+![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/transition_matrix.png)
 
 # Removal Effects
 To determine the contribution of each campaign to the conversions and revenue, we calculate the removal effect of each campaign. The removal effect measures the impact of removing a campaign from the Markov Chain on the overall conversion probability.
@@ -102,6 +95,12 @@ where:
 * $P(X_t = 1 | X_0 = \text{start})$ denotes the probability of reaching the conversion state (state 1) starting from the initial state
 * $P(X_t = 1 | X_0 = \text{start}, P_{\text{removed}}^{(i)})$ denotes the probability of reaching the conversion state starting from the initial state, with campaign $i$ removed from the Markov Chain
 
+The removal effects of each campaign: 
+*`a`: -0.137 (Removing campaign `a` would decrease the conversion probability by 13.7%)
+*`b`: -0.135 (Removing campaign `b` would decrease the conversion probability by 13.5%)
+*`c`: -0.143 (Removing campaign `c` would decrease the conversion probability by 14.3%)
+*`d`: -0.144 (Removing campaign `d` would decrease the conversion probability by 14.4%)
+
 # Revenue Attribution
 Based on removal effects, we attribute the total conversions and revenue to each campaign. The attribution is proportional to the removal effect of each campaign. We calculate the attributed conversions and revenue for each campaign based on their relative contribution to the total removal effect.
 
@@ -118,6 +117,12 @@ where:
 * $\text{Total Conversions}$ represents the total number of conversions across all campaigns
 * $\text{Total Revenue}$ represents the total revenue generated across all campaigns
 
+The revenue attribution of each campaign: 
+*`a`: 21567 (~24%)
+*`b`: 21210 (~24%)
+*`c`: 22463 (~26%)
+*`d`: 22691 (~26%)
+
 # Budget Optimization
 To optimize the budget allocation across the campaigns, we formulate an optimization problem using linear programming. The objective is to maximize the total attributed revenue while satisfying the budget constraints.
 The optimization problem is set up as follows:
@@ -126,8 +131,8 @@ Decision variables: $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ (representing the budg
 Objective function: Maximize the total attributed revenue
 Constraints:
 
-Total budget constraint: x_a + x_b + x_c + x_d <= total_budget
-Non-negativity constraints: x_a, x_b, x_c, x_d >= 0
+Total budget constraint: x_a + x_b + x_c + x_d = total_budget
+Non-negativity constraints: all x_a, x_b, x_c, x_d > 0
 Removal effect constraints: Ensure that the attributed revenue for each campaign is consistent with the removal effects
 
 Let $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables representing the budget allocation for each campaign, and $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign, and $\mathbf{RE} = [\text{RE}(a), \text{RE}(b), \text{RE}(c), \text{RE}(d)]^T$ be the vector of removal effects for each campaign, and $\mathbf{AR} = [\text{AR}(a), \text{AR}(b), \text{AR}(c), \text{AR}(d)]^T$ be the vector of attributed revenue for each campaign.
@@ -136,7 +141,7 @@ Objective function:
 $$\text{Maximize: } \mathbf{r}^T \mathbf{x}$$
 Subject to:
 
-* Total budget constraint: $$\mathbf{0} < \mathbf{1}^T \mathbf{x} \leq \text{total budget}$$
+* Total budget constraint: $$ \mathbf{1}^T \mathbf{x} \eq \text{total budget}$$
 * Removal effect constraints: $$\mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})$$
 
 The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}^*$ that maximizes the total attributed revenue while satisfying the constraints.
