@@ -97,10 +97,10 @@ where:
 
 The removal effects of each campaign: 
 
-*`a`: -0.137 (Removing campaign `a` would decrease the conversion probability by 13.7%)
-*`b`: -0.135 (Removing campaign `b` would decrease the conversion probability by 13.5%)
-*`c`: -0.143 (Removing campaign `c` would decrease the conversion probability by 14.3%)
-*`d`: -0.144 (Removing campaign `d` would decrease the conversion probability by 14.4%)
+* `a`: -0.137 (Removing campaign `a` would decrease the conversion probability by 13.7%)
+* `b`: -0.135 (Removing campaign `b` would decrease the conversion probability by 13.5%)
+* `c`: -0.143 (Removing campaign `c` would decrease the conversion probability by 14.3%)
+* `d`: -0.144 (Removing campaign `d` would decrease the conversion probability by 14.4%)
 
 # Revenue Attribution
 Based on removal effects, we attribute the total conversions and revenue to each campaign. The attribution is proportional to the removal effect of each campaign. We calculate the attributed conversions and revenue for each campaign based on their relative contribution to the total removal effect.
@@ -120,10 +120,10 @@ where:
 
 The revenue attribution of each campaign: 
 
-*`a`: 21567 (~24%)
-*`b`: 21210 (~24%)
-*`c`: 22463 (~26%)
-*`d`: 22691 (~26%)
+* `a`: 21567 (~24%)
+* `b`: 21210 (~24%)
+* `c`: 22463 (~26%)
+* `d`: 22691 (~26%)
 
 # Budget Optimization
 To optimize the budget allocation across the campaigns, we formulate an optimization problem using linear programming. The objective is to maximize the total attributed revenue while satisfying the budget constraints.
@@ -141,7 +141,7 @@ Constraints:
 Let:
 * $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables representing the budget allocation for each campaign
 * $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign where:
-  - $$\mathbf{r} = (1 + \text{return on investment (\%) }) \times \text{cost}$$
+  - $$\mathbf{r} = (1 + \text{return on investment}\%) \times \text{cost}$$
 * $\mathbf{RE} = [\text{RE}_a, \text{RE}_b, \text{RE}_c, \text{RE}_d]^T$ be the vector of removal effects for each campaign
 * $\mathbf{AR} = [\text{AR}_a, \text{AR}_b, \text{AR}_c, \text{AR}_d]^T$ be the vector of attributed revenue for each campaign.
 
