@@ -66,10 +66,31 @@ The Markov Chain captures the transition probabilities between different states,
 
 ### Building States
 We define the following states in our Markov Chain:
-* Campaign states: 'a', 'b', 'c', 'd'
-* Null state: 'Null' (representing no click)
+* Campaign states: `a`, `b`, `c`, `d`
+* Null state: `Null` (representing no click)
 * Conversion states: 0 (no conversion), 1 (conversion)
+
 Based on frequency, we can calculate the transition probabilities (when a state changes from one to another, or when a state remains). An example can be illustrated below:
 
 ![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.png)
-  
+
+# Removal Effects
+To determine the contribution of each campaign to the conversions and revenue, we calculate the removal effect of each campaign. The removal effect measures the impact of removing a campaign from the Markov Chain on the overall conversion probability.
+For each campaign, we remove it from the Markov Chain by setting the transition probabilities from the removed campaign to other states and from other states to the removed campaign to 0. We then calculate the conversion probability without the removed campaign and compare it to the original conversion probability. The difference between the two probabilities gives us the removal effect of that campaign.
+
+# Revenue Attribution
+Based on removal effects, we attribute the total conversions and revenue to each campaign. The attribution is proportional to the removal effect of each campaign. We calculate the attributed conversions and revenue for each campaign based on their relative contribution to the total removal effect.
+
+# Budget Optimization
+To optimize the budget allocation across the campaigns, we formulate an optimization problem using linear programming. The objective is to maximize the total attributed revenue while satisfying the budget constraints.
+The optimization problem is set up as follows:
+
+Decision variables: x_a, x_b, x_c, x_d (representing the budget allocation for each campaign)
+Objective function: Maximize the total attributed revenue
+Constraints:
+
+Total budget constraint: x_a + x_b + x_c + x_d <= total_budget
+Non-negativity constraints: x_a, x_b, x_c, x_d >= 0
+Removal effect constraints: Ensure that the attributed revenue for each campaign is consistent with the removal effects
+
+By solving this optimization problem, we obtain the optimal budget allocation for each campaign that maximizes the total attributed revenue while respecting the budget constraints and considering the removal effects.
