@@ -137,4 +137,5 @@ $$\begin{aligned}
 & \mathbf{x} \geq \mathbf{0} \
 & \mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})
 \end{aligned}$$
+
 By solving this optimization problem, we obtain the optimal budget allocation for each campaign that maximizes the total attributed revenue while respecting the budget constraints and considering the removal effects.
