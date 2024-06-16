@@ -135,7 +135,7 @@ In matrix form, the optimization problem can be written as:
 $$
 \begin{aligned}
 \text{Maximize: } & \mathbf{r}^T \mathbf{x} \
-\text{Subject to: } & \mathbf{1}^T \mathbf{x} \leq \text{total_budget} \
+\text{Subject to: } & \mathbf{1}^T \mathbf{x} \leq \text{total budget} \
 & \mathbf{x} \geq \mathbf{0} \
 & \mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})
 \end{aligned}
