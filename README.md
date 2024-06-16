@@ -74,6 +74,16 @@ Based on frequency, we can calculate the transition probabilities (when a state 
 
 ![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.png)
 
+Transition Matrix
+             a         b         c         d         0         1      NULL
+a     0.166486  0.174633  0.164584  0.164856  0.040060  0.024851  0.264530
+b     0.165352  0.167850  0.164564  0.165484  0.039695  0.025237  0.271819
+c     0.157222  0.169067  0.169067  0.165298  0.041728  0.022210  0.275407
+d     0.165154  0.167457  0.164205  0.165696  0.044167  0.021271  0.272050
+0     0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000
+1     0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000
+NULL  0.000000  0.000000  0.000000  0.000000  0.324661  0.074488  0.600851
+
 # Removal Effects
 To determine the contribution of each campaign to the conversions and revenue, we calculate the removal effect of each campaign. The removal effect measures the impact of removing a campaign from the Markov Chain on the overall conversion probability.
 For each campaign, we remove it from the Markov Chain by setting the transition probabilities from the removed campaign to other states and from other states to the removed campaign to 0. We then calculate the conversion probability without the removed campaign and compare it to the original conversion probability. The difference between the two probabilities gives us the removal effect of that campaign.
