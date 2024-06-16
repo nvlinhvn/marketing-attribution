@@ -131,11 +131,14 @@ Constraints:
 
 The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}^*$ that maximizes the total attributed revenue while satisfying the constraints.
 In matrix form, the optimization problem can be written as:
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \text{Maximize: } & \mathbf{r}^T \mathbf{x} \
 \text{Subject to: } & \mathbf{1}^T \mathbf{x} \leq \text{total_budget} \
 & \mathbf{x} \geq \mathbf{0} \
 & \mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})
-\end{aligned}$$
+\end{aligned}
+$$
 
 By solving this optimization problem, we obtain the optimal budget allocation for each campaign that maximizes the total attributed revenue while respecting the budget constraints and considering the removal effects.
