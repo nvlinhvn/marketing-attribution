@@ -87,10 +87,10 @@ The removal effect of campaign $i$ is calculated as:
 $$\text{Removal Effect}(i) = P(\text{conversion}) - P(\text{conversion}_{\text{removed}}^{(i)})$$
 where:
 
-$X_t$ represents the state of the Markov Chain at time step $t$
-$X_0$ represents the initial state of the Markov Chain
-$P(X_t = 1 | X_0 = \text{start})$ denotes the probability of reaching the conversion state (state 1) starting from the initial state
-$P(X_t = 1 | X_0 = \text{start}, P_{\text{removed}}^{(i)})$ denotes the probability of reaching the conversion state starting from the initial state, with campaign $i$ removed from the Markov Chain
+* $X_t$ represents the state of the Markov Chain at time step $t$
+* $X_0$ represents the initial state of the Markov Chain
+* $P(X_t = 1 | X_0 = \text{start})$ denotes the probability of reaching the conversion state (state 1) starting from the initial state
+* $P(X_t = 1 | X_0 = \text{start}, P_{\text{removed}}^{(i)})$ denotes the probability of reaching the conversion state starting from the initial state, with campaign $i$ removed from the Markov Chain
 
 # Revenue Attribution
 Based on removal effects, we attribute the total conversions and revenue to each campaign. The attribution is proportional to the removal effect of each campaign. We calculate the attributed conversions and revenue for each campaign based on their relative contribution to the total removal effect.
