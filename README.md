@@ -70,5 +70,6 @@ We define the following states in our Markov Chain:
 * Null state: 'Null' (representing no click)
 * Conversion states: 0 (no conversion), 1 (conversion)
 Based on frequency, we can calculate the transition probabilities (when a state changes from one to another, or when a state remains). An example can be illustrated below:
+
 ![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.png)
   
