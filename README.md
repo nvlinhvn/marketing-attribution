@@ -78,6 +78,20 @@ Based on frequency, we can calculate the transition probabilities (when a state 
 To determine the contribution of each campaign to the conversions and revenue, we calculate the removal effect of each campaign. The removal effect measures the impact of removing a campaign from the Markov Chain on the overall conversion probability.
 For each campaign, we remove it from the Markov Chain by setting the transition probabilities from the removed campaign to other states and from other states to the removed campaign to 0. We then calculate the conversion probability without the removed campaign and compare it to the original conversion probability. The difference between the two probabilities gives us the removal effect of that campaign.
 
+Let $P$ be the transition probability matrix of the Markov Chain, and $P_{\text{removed}}^{(i)}$ be the modified transition probability matrix with campaign $i$ removed.
+The conversion probability with all campaigns is given by:
+$$P(\text{conversion}) = P(X_t = 1 | X_0 = \text{start})$$
+The conversion probability without campaign $i$ is given by:
+$$P(\text{conversion}{\text{removed}}^{(i)}) = P(X_t = 1 | X_0 = \text{start}, P{\text{removed}}^{(i)})$$
+The removal effect of campaign $i$ is calculated as:
+$$\text{Removal Effect}(i) = P(\text{conversion}) - P(\text{conversion}_{\text{removed}}^{(i)})$$
+where:
+
+$X_t$ represents the state of the Markov Chain at time step $t$
+$X_0$ represents the initial state of the Markov Chain
+$P(X_t = 1 | X_0 = \text{start})$ denotes the probability of reaching the conversion state (state 1) starting from the initial state
+$P(X_t = 1 | X_0 = \text{start}, P_{\text{removed}}^{(i)})$ denotes the probability of reaching the conversion state starting from the initial state, with campaign $i$ removed from the Markov Chain
+
 # Revenue Attribution
 Based on removal effects, we attribute the total conversions and revenue to each campaign. The attribution is proportional to the removal effect of each campaign. We calculate the attributed conversions and revenue for each campaign based on their relative contribution to the total removal effect.
 
