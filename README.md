@@ -55,7 +55,7 @@ We would like to build a statistical attribution model to know:
 * What is the return on investment for each campaign?
 * How would you optimize the spend of a given budget of $1 million across all four campaigns?
 
-# Hidden Markov Model
+# Markov Chain
 
 We model the user's click sequence as a Markov Chain, where each state represents a campaign or a conversion state. 
 The Markov Chain captures the transition probabilities between different states, allowing us to analyze the user's journey from initial ad clicks to potential conversion.
@@ -94,6 +94,19 @@ where:
 
 # Revenue Attribution
 Based on removal effects, we attribute the total conversions and revenue to each campaign. The attribution is proportional to the removal effect of each campaign. We calculate the attributed conversions and revenue for each campaign based on their relative contribution to the total removal effect.
+
+Let $\text{RE}(i)$ be the removal effect of campaign $i$, $\text{Total Conversions}$ be the total number of conversions, and $\text{Total Revenue}$ be the total revenue.
+The attributed conversions for campaign $i$ is given by:
+$$\text{Attributed Conversions}(i) = \frac{\text{RE}(i)}{\sum_{j=1}^{n} \text{RE}(j)} \times \text{Total Conversions}$$
+The attributed revenue for campaign $i$ is given by:
+$$\text{Attributed Revenue}(i) = \frac{\text{RE}(i)}{\sum_{j=1}^{n} \text{RE}(j)} \times \text{Total Revenue}$$
+where:
+
+$\text{RE}(i)$ represents the removal effect of campaign $i$
+$\sum_{j=1}^{n} \text{RE}(j)$ represents the sum of removal effects of all campaigns
+$\frac{\text{RE}(i)}{\sum_{j=1}^{n} \text{RE}(j)}$ represents the proportion of the removal effect of campaign $i$ relative to the total removal effect of all campaigns
+$\text{Total Conversions}$ represents the total number of conversions across all campaigns
+$\text{Total Revenue}$ represents the total revenue generated across all campaigns
 
 # Budget Optimization
 To optimize the budget allocation across the campaigns, we formulate an optimization problem using linear programming. The objective is to maximize the total attributed revenue while satisfying the budget constraints.
