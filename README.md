@@ -112,7 +112,7 @@ where:
 To optimize the budget allocation across the campaigns, we formulate an optimization problem using linear programming. The objective is to maximize the total attributed revenue while satisfying the budget constraints.
 The optimization problem is set up as follows:
 
-Decision variables: `x_a`, `x_b`, `x_c`, `x_d` (representing the budget allocation for each campaign)
+Decision variables: $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ (representing the budget allocation for each campaign)
 Objective function: Maximize the total attributed revenue
 Constraints:
 
@@ -145,5 +145,4 @@ $$\begin{aligned}
 & \mathbf{x} \geq \mathbf{0} \
 & \mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})
 \end{aligned}$$
-
 By solving this optimization problem, we obtain the optimal budget allocation for each campaign that maximizes the total attributed revenue while respecting the budget constraints and considering the removal effects.
