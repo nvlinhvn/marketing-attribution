@@ -3,10 +3,10 @@ We have 4 different display advertising campaigns. We would like to evaluate how
 
 # Problem Definition
 We have (anonymized) data which contains 10000 users who clicked on at least one of the display ads from 4 different campaigns a, b, c, or d. Purchase is indicated by the "Conversion" variable (i.e., equals 1 if there is purchase and 0 otherwise). The `Value` column indicates the revenue in dollars earned from each purchase. The cost per click for each campaign:
-* a: 7
-* b: 5
-* c: 4
-* d: 2
+* a: 2.75
+* b: 2.5
+* c: 3
+* d: 3
 
 The order of clicks is as indicated in the data. Data example:
 
