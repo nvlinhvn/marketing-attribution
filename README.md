@@ -124,21 +124,9 @@ Let $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables re
 The optimization problem can be formulated as follows:
 Objective function:
 $$\text{Maximize: } \mathbf{r}^T \mathbf{x}$$
-Constraints:
+Subject to:
 
 * Total budget constraint: $$\mathbf{0} < \mathbf{1}^T \mathbf{x} \leq \text{total budget}$$
 * Removal effect constraints: $$\mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})$$
 
 The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}^*$ that maximizes the total attributed revenue while satisfying the constraints.
-In matrix form, the optimization problem can be written as:
-
-$$
-\begin{aligned}
-\text{Maximize: } & \mathbf{r}^T \mathbf{x} \
-\text{Subject to: } & \mathbf{1}^T \mathbf{x} \leq \text{total budget} \
-& \mathbf{x} \geq \mathbf{0} \
-& \mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})
-\end{aligned}
-$$
-
-By solving this optimization problem, we obtain the optimal budget allocation for each campaign that maximizes the total attributed revenue while respecting the budget constraints and considering the removal effects.
