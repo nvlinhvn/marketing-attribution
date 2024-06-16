@@ -127,7 +127,7 @@ $$\text{Maximize: } \mathbf{r}^T \mathbf{x}$$
 Constraints:
 
 Total budget constraint:
-$$\mathbf{1}^T \mathbf{x} \leq \text{total_budget}$$
+$$\mathbf{1}^T \mathbf{x} \leq \text{total budget}$$
 where $\mathbf{1}$ is a vector of ones.
 Non-negativity constraints:
 $$\mathbf{x} \geq \mathbf{0}$$
