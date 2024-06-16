@@ -102,11 +102,11 @@ The attributed revenue for campaign $i$ is given by:
 $$\text{Attributed Revenue}(i) = \frac{\text{RE}(i)}{\sum_{j=1}^{n} \text{RE}(j)} \times \text{Total Revenue}$$
 where:
 
-$\text{RE}(i)$ represents the removal effect of campaign $i$
-$\sum_{j=1}^{n} \text{RE}(j)$ represents the sum of removal effects of all campaigns
-$\frac{\text{RE}(i)}{\sum_{j=1}^{n} \text{RE}(j)}$ represents the proportion of the removal effect of campaign $i$ relative to the total removal effect of all campaigns
-$\text{Total Conversions}$ represents the total number of conversions across all campaigns
-$\text{Total Revenue}$ represents the total revenue generated across all campaigns
+* $\text{RE}(i)$ represents the removal effect of campaign $i$
+* $\sum_{j=1}^{n} \text{RE}(j)$ represents the sum of removal effects of all campaigns
+* $\frac{\text{RE}(i)}{\sum_{j=1}^{n} \text{RE}(j)}$ represents the proportion of the removal effect of campaign $i$ relative to the total removal effect of all campaigns
+* $\text{Total Conversions}$ represents the total number of conversions across all campaigns
+* $\text{Total Revenue}$ represents the total revenue generated across all campaigns
 
 # Budget Optimization
 To optimize the budget allocation across the campaigns, we formulate an optimization problem using linear programming. The objective is to maximize the total attributed revenue while satisfying the budget constraints.
