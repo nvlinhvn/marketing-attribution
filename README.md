@@ -90,10 +90,10 @@ The removal effect of campaign $i$ is calculated as:
 $$\text{Removal Effect}(i) = P(\text{conversion}) - P(\text{conversion}_{\text{removed}}^{(i)})$$
 where:
 
-* $X_t$ represents the state of the Markov Chain at time step $t$
-* $X_0$ represents the initial state of the Markov Chain
-* $P(X_t = 1 | X_0 = \text{start})$ denotes the probability of reaching the conversion state (state 1) starting from the initial state
-* $P(X_t = 1 | X_0 = \text{start}, P_{\text{removed}}^{(i)})$ denotes the probability of reaching the conversion state starting from the initial state, with campaign $i$ removed from the Markov Chain
+* $X_t$: the state of the Markov Chain at time step $t$
+* $X_0$: the initial state of the Markov Chain
+* $P(X_t = 1 | X_0 = \text{start})$: Probability of reaching the conversion state (state 1) starting from the initial state
+* $P(X_t = 1 | X_0 = \text{start}, P_{\text{removed}}^{(i)})$: probability of reaching the conversion state starting from the initial state, with campaign $i$ removed from the Markov Chain
 
 The removal effects of each campaign: 
 
@@ -112,11 +112,11 @@ The attributed revenue for campaign $i$ is given by:
 $$\text{Attributed Revenue}(i) = \frac{\text{RE}(i)}{\sum_{j=1} \text{RE}(j)} \times \text{Total Revenue}$$
 where:
 
-* $\text{RE}(i)$ represents the removal effect of campaign $i$
-* $\sum_{j=1} \text{RE}(j)$ represents the sum of removal effects of all campaigns
-* $\frac{\text{RE}(i)}{\sum_{j=1} \text{RE}(j)}$ represents the proportion of the removal effect of campaign $i$ relative to the total removal effect of all campaigns
-* $\text{Total Conversions}$ represents the total number of conversions across all campaigns
-* $\text{Total Revenue}$ represents the total revenue generated across all campaigns
+* $\text{RE}(i)$: removal effect of campaign $i$
+* $\sum_{j=1} \text{RE}(j)$: sum of removal effects of all campaigns
+* $\frac{\text{RE}(i)}{\sum_{j=1} \text{RE}(j)}$: proportion of the removal effect of campaign $i$ relative to the total removal effect of all campaigns
+* $\text{Total Conversions}$: total conversions across all campaigns
+* $\text{Total Revenue}$: total revenue generated across all campaigns
 
 The revenue attribution of each campaign: 
 
@@ -149,7 +149,7 @@ The optimization problem can be formulated as follows:
 
 Subject to:
 
-* Total budget constraint: $$\mathbf{1}^T \mathbf{x} = \text{total_budget}$$
+* Total budget constraint: $$\mathbf{1}^T \mathbf{x} = \text{total budget}$$
 * Removal effect constraints: $$\mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})$$
 
 The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}^*$ that maximizes the total attributed revenue while satisfying the constraints. 
