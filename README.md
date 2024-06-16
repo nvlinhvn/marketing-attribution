@@ -120,24 +120,16 @@ Total budget constraint: x_a + x_b + x_c + x_d <= total_budget
 Non-negativity constraints: x_a, x_b, x_c, x_d >= 0
 Removal effect constraints: Ensure that the attributed revenue for each campaign is consistent with the removal effects
 
-Let $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables representing the budget allocation for each campaign, and $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign.
+Let $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables representing the budget allocation for each campaign, and $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign, and $\mathbf{RE} = [\text{RE}(a), \text{RE}(b), \text{RE}(c), \text{RE}(d)]^T$ be the vector of removal effects for each campaign, and $\mathbf{AR} = [\text{AR}(a), \text{AR}(b), \text{AR}(c), \text{AR}(d)]^T$ be the vector of attributed revenue for each campaign.
 The optimization problem can be formulated as follows:
 Objective function:
 $$\text{Maximize: } \mathbf{r}^T \mathbf{x}$$
 Constraints:
 
-Total budget constraint:
-$$\mathbf{1}^T \mathbf{x} \leq \text{total budget}$$
-where $\mathbf{1}$ is a vector of ones.
-Non-negativity constraints:
-$$\mathbf{x} \geq \mathbf{0}$$
-where $\mathbf{0}$ is a vector of zeros.
-Removal effect constraints:
-Let $\mathbf{RE} = [\text{RE}(a), \text{RE}(b), \text{RE}(c), \text{RE}(d)]^T$ be the vector of removal effects for each campaign, and $\mathbf{AR} = [\text{AR}(a), \text{AR}(b), \text{AR}(c), \text{AR}(d)]^T$ be the vector of attributed revenue for each campaign.
-$$\mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})$$
-where $\odot$ represents the element-wise multiplication.
+* Total budget constraint: $$\mathbf{0} \geq \mathbf{1}^T \mathbf{x} \leq \text{total budget}$$. ($\mathbf{1}$ is a vector of ones)
+* Removal effect constraints: $$\mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})$$
 
-The optimization problem can be solved using linear programming techniques, such as the simplex method or interior-point methods, to obtain the optimal budget allocation $\mathbf{x}^*$ that maximizes the total attributed revenue while satisfying the constraints.
+The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}^*$ that maximizes the total attributed revenue while satisfying the constraints.
 In matrix form, the optimization problem can be written as:
 $$\begin{aligned}
 \text{Maximize: } & \mathbf{r}^T \mathbf{x} \
