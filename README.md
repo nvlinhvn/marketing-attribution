@@ -96,6 +96,7 @@ where:
 * $P(X_t = 1 | X_0 = \text{start}, P_{\text{removed}}^{(i)})$ denotes the probability of reaching the conversion state starting from the initial state, with campaign $i$ removed from the Markov Chain
 
 The removal effects of each campaign: 
+
 *`a`: -0.137 (Removing campaign `a` would decrease the conversion probability by 13.7%)
 *`b`: -0.135 (Removing campaign `b` would decrease the conversion probability by 13.5%)
 *`c`: -0.143 (Removing campaign `c` would decrease the conversion probability by 14.3%)
@@ -118,6 +119,7 @@ where:
 * $\text{Total Revenue}$ represents the total revenue generated across all campaigns
 
 The revenue attribution of each campaign: 
+
 *`a`: 21567 (~24%)
 *`b`: 21210 (~24%)
 *`c`: 22463 (~26%)
@@ -125,17 +127,18 @@ The revenue attribution of each campaign:
 
 # Budget Optimization
 To optimize the budget allocation across the campaigns, we formulate an optimization problem using linear programming. The objective is to maximize the total attributed revenue while satisfying the budget constraints.
-The optimization problem is set up as follows:
+
+Assuming retun on investment of each campaign is constant, the optimization problem is set up as follows:
 
 Decision variables: $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ (representing the budget allocation for each campaign)
 Objective function: Maximize the total attributed revenue
 Constraints:
 
-Total budget constraint: x_a + x_b + x_c + x_d = total_budget
-Non-negativity constraints: all x_a, x_b, x_c, x_d > 0
-Removal effect constraints: Ensure that the attributed revenue for each campaign is consistent with the removal effects
+* Total budget constraint: x_a + x_b + x_c + x_d = total_budget
+* Non-negativity constraints: all x_a, x_b, x_c, x_d > 0
+* Removal effect constraints: Ensure that the attributed revenue for each campaign is consistent with the removal effects
 
-Let $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables representing the budget allocation for each campaign, and $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign, and $\mathbf{RE} = [\text{RE}(a), \text{RE}(b), \text{RE}(c), \text{RE}(d)]^T$ be the vector of removal effects for each campaign, and $\mathbf{AR} = [\text{AR}(a), \text{AR}(b), \text{AR}(c), \text{AR}(d)]^T$ be the vector of attributed revenue for each campaign.
+Let $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables representing the budget allocation for each campaign, and $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign ($=\text{return on investment (%) \times \text{cost}), and $\mathbf{RE} = [\text{RE}(a), \text{RE}(b), \text{RE}(c), \text{RE}(d)]^T$ be the vector of removal effects for each campaign, and $\mathbf{AR} = [\text{AR}(a), \text{AR}(b), \text{AR}(c), \text{AR}(d)]^T$ be the vector of attributed revenue for each campaign.
 The optimization problem can be formulated as follows:
 Objective function:
 $$\text{Maximize: } \mathbf{r}^T \mathbf{x}$$
