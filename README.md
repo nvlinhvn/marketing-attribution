@@ -56,6 +56,19 @@ We would like to build a statistical attribution model to know:
 * How would you optimize the spend of a given budget of $1 million across all four campaigns?
 
 # Hidden Markov Model
+
+We model the user's click sequence as a Markov Chain, where each state represents a campaign or a conversion state. 
+The Markov Chain captures the transition probabilities between different states, allowing us to analyze the user's journey from initial ad clicks to potential conversion.
+
 ![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.gif)
 
 (Source: setosa.io)
+
+### Building States
+We define the following states in our Markov Chain:
+* Campaign states: 'a', 'b', 'c', 'd'
+* Null state: 'Null' (representing no click)
+* Conversion states: 0 (no conversion), 1 (conversion)
+Based on frequency, we can calculate the transition probabilities (when a state changes from one to another, or when a state remains). An example can be illustrated below:
+![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.png)
+  
