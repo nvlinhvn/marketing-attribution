@@ -141,7 +141,7 @@ Constraints:
 Let:
 * $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables representing the budget allocation for each campaign
 * $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign where:
-* * $$\mathbf{r} = (1 + \text{return on investment (%) }) \odot \text{cost}$$
+  * $$\mathbf{r} = (1 + \text{return on investment (%) }) \odot \text{cost}$$
 * $\mathbf{RE} = [\text{RE}(a), \text{RE}(b), \text{RE}(c), \text{RE}(d)]^T$ be the vector of removal effects for each campaign
 * $\mathbf{AR} = [\text{AR}(a), \text{AR}(b), \text{AR}(c), \text{AR}(d)]^T$ be the vector of attributed revenue for each campaign.
 
