@@ -97,14 +97,14 @@ Based on removal effects, we attribute the total conversions and revenue to each
 
 Let $\text{RE}(i)$ be the removal effect of campaign $i$, $\text{Total Conversions}$ be the total number of conversions, and $\text{Total Revenue}$ be the total revenue.
 The attributed conversions for campaign $i$ is given by:
-$$\text{Attributed Conversions}(i) = \frac{\text{RE}(i)}{\sum_{j=1}^{n} \text{RE}(j)} \times \text{Total Conversions}$$
+$$\text{Attributed Conversions}(i) = \frac{\text{RE}(i)}{\sum_{j=1} \text{RE}(j)} \times \text{Total Conversions}$$
 The attributed revenue for campaign $i$ is given by:
-$$\text{Attributed Revenue}(i) = \frac{\text{RE}(i)}{\sum_{j=1}^{n} \text{RE}(j)} \times \text{Total Revenue}$$
+$$\text{Attributed Revenue}(i) = \frac{\text{RE}(i)}{\sum_{j=1} \text{RE}(j)} \times \text{Total Revenue}$$
 where:
 
 * $\text{RE}(i)$ represents the removal effect of campaign $i$
-* $\sum_{j=1}^{n} \text{RE}(j)$ represents the sum of removal effects of all campaigns
-* $\frac{\text{RE}(i)}{\sum_{j=1}^{n} \text{RE}(j)}$ represents the proportion of the removal effect of campaign $i$ relative to the total removal effect of all campaigns
+* $\sum_{j=1} \text{RE}(j)$ represents the sum of removal effects of all campaigns
+* $\frac{\text{RE}(i)}{\sum_{j=1} \text{RE}(j)}$ represents the proportion of the removal effect of campaign $i$ relative to the total removal effect of all campaigns
 * $\text{Total Conversions}$ represents the total number of conversions across all campaigns
 * $\text{Total Revenue}$ represents the total revenue generated across all campaigns
 
