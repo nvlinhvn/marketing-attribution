@@ -3,10 +3,10 @@ We have 4 different display advertising campaigns. We would like to evaluate how
 
 # Problem Definition
 We have (anonymized) data which contains 10000 users who clicked on at least one of the display ads from 4 different campaigns a, b, c, or d. Purchase is indicated by the "Conversion" variable (i.e., equals 1 if there is purchase and 0 otherwise). The `Value` column indicates the revenue in dollars earned from each purchase. The cost per click for each campaign:
-* a: 2.75
-* b: 2.5
-* c: 3
-* d: 3
+* a: 7
+* b: 5
+* c: 4
+* d: 2
 
 The order of clicks is as indicated in the data. Data example:
 
@@ -125,6 +125,15 @@ The revenue attribution of each campaign:
 * `c`: 22463 (~26%)
 * `d`: 22691 (~26%)
 
+With total cost of each campaign ($ = \text{cost per click} \times \text{total number click}$), we can calculate return on investment (%) for each campaign:
+* `a`: -58%
+* `b`: -44%
+* `c`: -24%
+* `d`: 54%
+
+as can be seen, only campaign `d` makes a profit. This is because campaign `d` has the cheapest cost per click (CPC), while each campaign almost got the same number of total click (~7.5k). Nevertheless, this doesn't mean we only invest campaign `d` and opt out of the others. As stated above, if we removed any single campaign, the conversion probabiliy would be decreased by 14%
+
+
 # Budget Optimization
 To optimize the budget allocation across the campaigns, we formulate an optimization problem using linear programming. The objective is to maximize the total attributed revenue while satisfying the budget constraints.
 
@@ -155,7 +164,15 @@ Subject to:
 The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}^*$ that maximizes the total attributed revenue while satisfying the constraints. 
 
 The outcome gave us the allocated budget to each campaign:
-* `a`: 241945 (24%)
-* `b`: 227237 (23%)
-* `c`: 266269 (27%)
-* `d`: 264549 (27%)
+* `a`: 384497 (38%)
+* `b`: 283741 (28%)
+* `c`: 221652 (22%)
+* `d`: 110110 (11%)
+
+# Limitation
+
+* High Variance: Markov chain model relies on frequency-based probabilities. It requires a large amount of data to accurately estimate the transition probabilities between states. If the data is limited or too many noises, the model's accuracy could be skrewed. New or rare occurrences can significantly impact the probabilities, making the model sensitive to outliers or changes in user behavior.
+* Memoryless: This linear Markov chains assume that the future state depends only on the current state, not on the sequence of events that preceded it. In the context of marketing attribution, the user's previous interactions and the sequence of touchpoints may have a significant impact on their decision to convert. The Markov chain model does not capture this long-term dependency explicitly. User journeys and states may be more complex, with multiple touchpoints, non-linear paths with external factors.
+* Stationarity: Markov chains often assume that the transition probabilities remain constant over time (stationarity assumption). In practice, user behavior and preferences may evolve, and the effectiveness of marketing campaigns may change over time.
+* Independence: Removal effect of a campaign assume the independence on the overall conversion probability, i.e. the removal of a campaign does not affect the effectiveness of other campaigns. It may not capture the synergistic effects or interactions between campaigns. 
+
