@@ -60,7 +60,7 @@ We would like to build a statistical attribution model to know:
 We model the user's click sequence as a Markov Chain, where each state represents a campaign or a conversion state. 
 The Markov Chain captures the transition probabilities between different states, allowing us to analyze the user's journey from initial ad clicks to potential conversion.
 
-![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.gif)
+![HMM](./img/HMM.gif)
 
 (Source: setosa.io)
 
@@ -72,10 +72,10 @@ We define the following states in our Markov Chain:
 
 Based on frequency, we can calculate the transition probabilities (when a state changes from one to another, or when a state remains). An example can be illustrated below:
 
-![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/HMM.png)
+![HMM](./img/HMM.png)
 
 The training state based on frequency can give us transition matrix
-![HMM](https://raw.githubusercontent.com/nvlinhvn/marketing-attribution/linh-dev/img/transition_matrix.png)
+![HMM](./img/transition_matrix.png)
 
 # Removal Effects
 To determine the contribution of each campaign to the conversions and revenue, we calculate the removal effect of each campaign. The removal effect measures the impact of removing a campaign from the Markov Chain on the overall conversion probability.
