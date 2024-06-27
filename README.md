@@ -149,7 +149,7 @@ Constraints:
 
 Let:
 * $\mathbf{x} = [x_a, x_b, x_c, x_d]^T$ be the vector of decision variables representing the budget allocation for each campaign
-* $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign where $\mathbf{r} = (1 + \text{return on investment} (\%)) \times \text{cost}$
+* $\mathbf{r} = [r_a, r_b, r_c, r_d]^T$ be the vector of attributed revenue per unit budget for each campaign where $\mathbf{r} = (1 + \text{return on investment (%)}) \times \text{cost}$
 * $\mathbf{RE} = [\text{RE}_a, \text{RE}_b, \text{RE}_c, \text{RE}_d]^T$ be the vector of removal effects for each campaign
 * $\mathbf{AR} = [\text{AR}_a, \text{AR}_b, \text{AR}_c, \text{AR}_d]^T$ be the vector of attributed revenue for each campaign.
 
@@ -161,7 +161,7 @@ Subject to:
 * Total budget constraint: $$\mathbf{1}^T \mathbf{x} = \text{total budget}$$
 * Removal effect constraints: $$\mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})$$
 
-The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}^$ that maximizes the total attributed revenue while satisfying the constraints. 
+The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}$ that maximizes the total attributed revenue while satisfying the constraints. 
 
 The outcome gave us the allocated budget to each campaign:
 * `a`: 384497 (38%)
