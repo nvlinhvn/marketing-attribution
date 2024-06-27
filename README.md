@@ -158,7 +158,7 @@ The optimization problem can be formulated as follows:
 
 Subject to:
 
-* Total budget constraint: $$\mathbf{1}^T \mathbf{x} = \text{total budget}$$
+* Total budget constraint (assuming total budget = $1 million): $$\mathbf{1}^T \mathbf{x} = \text{total budget}$$
 * Removal effect constraints: $$\mathbf{AR} = \frac{\mathbf{RE}}{\mathbf{1}^T \mathbf{RE}} \odot (\mathbf{r}^T \mathbf{x})$$
 
 The optimization problem can be solved using linear programming techniques, to obtain the optimal budget allocation $\mathbf{x}$ that maximizes the total attributed revenue while satisfying the constraints. 
